@@ -18,10 +18,11 @@ def index():
     return dict(message=T('Hello World'))
 
 def video():
-    import requests
+    import urllib3
     import json
 
-    resp = requests.get("http://gdata.youtube.com/feeds/api/standardfeeds/most_popular?v=2&alt=jsonc")
+    http = urllib3.PoolManager()
+    resp = http.get("http://gdata.youtube.com/feeds/api/standardfeeds/most_popular?v=2&alt=jsonc")
     if(resp.status_code == 200):
         data = json.loads(resp.content)
     return dict(data=data)
