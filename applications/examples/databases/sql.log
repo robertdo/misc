@@ -1,0 +1,64 @@
+timestamp: 2012-03-17T20:22:36.600161
+CREATE TABLE users(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    email CHAR(512)
+);
+success!
+timestamp: 2012-03-17T20:22:36.603298
+CREATE TABLE dogs(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    name CHAR(512),
+    type CHAR(512),
+    vaccinated CHAR(1),
+    picture CHAR(512)
+);
+success!
+timestamp: 2012-03-17T20:22:36.605473
+CREATE TABLE products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-03-17T20:22:36.607877
+CREATE TABLE purchases(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
+    quantity INTEGER
+);
+success!
+timestamp: 2012-03-17T20:22:36.613450
+CREATE TABLE person(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    email CHAR(512)
+);
+success!
+timestamp: 2012-03-17T20:22:36.616144
+CREATE TABLE dog(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    owner_id INTEGER REFERENCES person(id) ON DELETE CASCADE,
+    name CHAR(512),
+    type CHAR(512),
+    vaccinated CHAR(1),
+    picture CHAR(512)
+);
+success!
+timestamp: 2012-03-17T20:22:36.618399
+CREATE TABLE product(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-03-17T20:22:36.620656
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    buyer_id INTEGER REFERENCES person(id) ON DELETE CASCADE,
+    product_id INTEGER REFERENCES product(id) ON DELETE CASCADE,
+    quantity INTEGER
+);
+success!

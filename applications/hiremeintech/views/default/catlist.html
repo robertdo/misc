@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+
+<h1>Jobs in {{= category }}</h1>
+{{ if jobs_in_cat: }}
+<ul>
+	{{ for job in jobs_in_cat: }}
+	<li><a href="{{= URL(r=request, f='info', args=job.id)}}">{{= job.title }}</a></li>
+	{{ pass }}
+</ul>
+{{ else: }}
+	<p>There are no jobs</p>
+{{ pass }}

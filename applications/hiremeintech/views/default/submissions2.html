@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+
+<h2>Submissions</h2>
+
+{{ if records: }}
+<table>
+	{{ for record in records: }}
+	<tr>
+		<td>{{=record.name}}</td>
+		<td>{{=record.email}}</td>
+		<td>{{=record.job}}</td>
+		<td><a href="{{= 'http://localhost:8080/hiremeintech/default/download/' + record.resume}}">file</a></td>
+	</tr>
+	{{ pass }}
+</table>
+{{ else: }}
+<p>No records</p>
+{{ pass }}

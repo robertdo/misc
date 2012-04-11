@@ -1,0 +1,5 @@
+cron:
+- description: import csv
+  url: /importcsv
+  schedule: every 24 hours
+  timezone: America/Vancouver

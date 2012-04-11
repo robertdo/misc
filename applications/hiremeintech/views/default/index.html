@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+
+<h1>Job Categories</h1>
+{{ if cats: }}
+<ul>
+	{{ for cat in cats: }}
+	<li><a href="{{= URL(r=request, f='catlist', args=cat)}}">{{= cat }}</a></li>
+	{{ pass }}
+</ul>
+{{ else: }}
+	<p>There are no categories</p>
+{{ pass }}

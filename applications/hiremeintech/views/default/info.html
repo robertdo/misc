@@ -1,0 +1,22 @@
+{{extend 'layout.html'}}
+
+<div class="span4">
+	<div style="padding:20px; border:1px solid #ddd;">
+		<h2>Apply Now</h2>
+		{{=form}}
+	</div>
+</div>
+<div class="span8">
+	<!--<h1>{{= job.title }}</h1>
+	<h3>{{= job.category }}</h3>-->
+	{{=DIV(XML(job.content), _id='1')}}
+</div>
+
+<script>
+     $(document).ready(function(){
+       $('.jobs-posting-related').hide();
+       $('.jobs-apply-informed').hide();
+       $('#jobs-social-bookmarks').hide();
+       $('.jobs-disclaimer').hide();
+     });
+   </script>
