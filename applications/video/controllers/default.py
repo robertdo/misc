@@ -22,9 +22,9 @@ def video():
     import json
 
     http = urllib3.PoolManager()
-    resp = http.get("http://gdata.youtube.com/feeds/api/standardfeeds/most_popular?v=2&alt=jsonc")
-    if(resp.status_code == 200):
-        data = json.loads(resp.content)
+    resp = http.request('GET', 'http://gdata.youtube.com/feeds/api/standardfeeds/most_popular?v=2&alt=jsonc')
+    if(resp.status == 200):
+        data = json.loads(resp.data)
     return dict(data=data)
 
 def user():
