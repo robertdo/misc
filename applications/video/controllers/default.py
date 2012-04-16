@@ -27,6 +27,8 @@ def video():
         data = json.loads(resp.data)
     return dict(data=data)
 
+#asdfs
+
 def user():
     """
     exposes:
